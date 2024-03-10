@@ -14,7 +14,7 @@ func main() {
 
 	addr := fmt.Sprintf(":%s", port)
 
-	listener, err := net.Listen("tcp", addr)	
+	listener, err := net.Listen("tcp", addr)
 	if err != nil {
 		fmt.Println("Failed to start listener", err)
 		os.Exit(1)
@@ -46,7 +46,7 @@ func handleConnection(conn net.Conn, prefix string) {
 			return
 		}
 
-		fmt.Println(line)
+		fmt.Print(string(line))
 
 		response := fmt.Sprintf("%s %s", prefix, line)
 		conn.Write([]byte(response))
